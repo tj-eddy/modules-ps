@@ -1,0 +1,55 @@
+{% extends '@PrestaShop/Admin/layout.html.twig' %}
+{% block sidebar_right %}
+    <div class="row">
+        <div class="col">
+            <form action="{{ path('cwms_ranking_save') }}" method="POST">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="d-inline-block card-header-title">
+                            {{ 'Configuration ponderation' }}
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <label for="product" class="form-control-label">{{ 'Product' }}</label>
+                                    <select name="ponderation_product" class="form-control" id="product">
+                                        {% for val  in  ponderation_values %}
+                                            <option value="{{ val }}" {% if val==product %} selected {% endif %} >{{ val }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="manufacturer" class="form-control-label">{{ 'Manufacturer' }}</label>
+                                    <select name="ponderation_manufacturer" class="form-control" id="manufacturer">
+                                        {% for val  in  ponderation_values %}
+                                            <option value="{{ val }}" {% if val==manufacturer %} selected {% endif %}>{{ val }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-sm">
+                                    <label for="stock" class="form-control-label">{{ 'Stock' }}</label>
+                                    <select name="ponderation_stock" class="form-control" id="stock">
+                                        {% for val  in  ponderation_values %}
+                                            <option value="{{ val }}" {% if val==stock %} selected {% endif %} >{{ val }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <input type="submit" value="{{ 'Save' }}" name="save_config_cwms_ranking"
+                               class="btn btn-primary">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}
+

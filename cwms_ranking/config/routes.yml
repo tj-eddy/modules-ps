@@ -1,0 +1,15 @@
+cwms_ranking_index:
+  path: /ranking_index
+  methods: [GET]
+  defaults:
+    _controller: 'CrownMakers\CR\Controller\Admin\AdminCwmsRankingController::indexAction'
+    _legacy_controller: 'AdminCwmsRanking'
+    _legacy_link: 'AdminCwmsRanking'
+
+cwms_ranking_save:
+  path: /ranking_save
+  methods: [POST]
+  defaults:
+    _controller: 'CrownMakers\CR\Controller\Admin\AdminCwmsRankingController::saveAction'
+    _legacy_controller: 'AdminCwmsRanking'
+    _legacy_link: 'AdminCwmsRanking'

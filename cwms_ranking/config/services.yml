@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    public: true
+
+  cwms.pagination.type:
+    class: 'CrownMakers\CR\Form\Admin\Configure\ShopParameters\ProductPreferences\ProductPreferencesFormHandler'
+    decorates: 'prestashop.admin.product_preferences.pagination.form_handler'
+    public: true
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.admin.product_preferences.pagination.data_provider'
+      - 'CrownMakers\CR\Form\Admin\Configure\ShopParameters\ProductPreferences\CwmsPaginationType'
+      - 'ProductPreferencesPagePagination'
+      - 'pagination'
+    calls:
+      - method: setCacheClearer
+        arguments:
+          - '@prestashop.adapter.cache_clearer'
+
+
+
+
